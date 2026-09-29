@@ -40,10 +40,22 @@ export const colorTokens = Object.keys(palette.light) as ColorToken[];
 /** CSS custom property name for a token, e.g. `line-strong` → `--xb-line-strong`. */
 export const colorVar = (token: ColorToken) => `--xb-${token}` as const;
 
+/**
+ * Derived colors — built from the palette, never new hex values.
+ *
+ * `signal-text`: signal legible as small text. Raw light-mode signal on paper
+ * is ~2.8:1; mixing toward ink gives ~6:1 in light and stays bright in dark
+ * (where ink is the light color). Same usage rule as signal: live/key terms only.
+ */
+const derivedColors = {
+  "signal-text": `color-mix(in oklab, var(${colorVar("signal")}) 60%, var(${colorVar("ink")}))`,
+};
+
 /** Tailwind color map: every token points at its CSS variable. */
-export const themeColors = Object.fromEntries(
-  colorTokens.map((token) => [token, `var(${colorVar(token)})`]),
-) as Record<ColorToken, string>;
+export const themeColors = {
+  ...(Object.fromEntries(colorTokens.map((token) => [token, `var(${colorVar(token)})`])) as Record<ColorToken, string>),
+  ...derivedColors,
+};
 
 /** `{ "--xb-paper": "#F5F4F0", … }` for one theme — used to emit the variables. */
 export const cssVariables = (theme: ThemeName) =>
