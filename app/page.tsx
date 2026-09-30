@@ -4,8 +4,10 @@ import { Hero } from "@/components/hero/Hero";
 import { Nav } from "@/components/Nav";
 import { sections } from "@/components/nav-links";
 import { Services } from "@/components/services/Services";
+import { CaseStudies } from "@/components/work/CaseStudies";
 
 const built: Record<string, ReactNode> = {
+  work: <CaseStudies />,
   services: <Services />,
 };
 
