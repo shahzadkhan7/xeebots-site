@@ -63,8 +63,17 @@ const config: Config = {
         ":root": lightVars,
         "@media (prefers-color-scheme: dark)": {
           ":root:not([data-theme=light])": darkVars,
+          ":root:not([data-theme=light]) .theme-invert": { ...lightVars, color: themeColors.ink },
         },
         ":root[data-theme=dark]": darkVars,
+
+        // `.theme-invert`: the opposite palette for everything inside it (dark
+        // surface in light mode and vice versa), following the same OS/toggle
+        // rules. Plain tokens (bg-card, text-ink, border-line, signal, btn…)
+        // then invert with no special cases. `color` is re-declared because
+        // body's text color is inherited as a resolved value, not the variable.
+        ".theme-invert": { ...darkVars, color: themeColors.ink },
+        ":root[data-theme=dark] .theme-invert": { ...lightVars, color: themeColors.ink },
 
         // Anchor links: smooth scroll, landing below the sticky nav.
         // (reduced-motion reset lives in `reducedMotion`)

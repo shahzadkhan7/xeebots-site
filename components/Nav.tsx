@@ -3,13 +3,11 @@
 import { useCallback, useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { spacing } from "@/design-tokens";
+import { btnClass } from "./button-styles";
 import { Logo } from "./Logo";
 import { MobileNavSection, NavDropdown } from "./NavDropdown";
 import { navMenus } from "./nav-links";
 import { ThemeToggle } from "./theme/ThemeToggle";
-
-const ctaClass =
-  "notch-sm items-center justify-center bg-ink px-4 py-2.5 font-mono text-label uppercase text-paper transition-colors duration-base hover:bg-ink/85 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-paper";
 
 export function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -54,7 +52,7 @@ export function Nav() {
 
         <div className="ml-auto flex items-center gap-3 md:ml-0">
           <ThemeToggle />
-          <a href="#contact" className={`${ctaClass} hidden md:inline-flex`}>
+          <a href="#contact" className={`${btnClass} hidden md:inline-flex`}>
             Start a project
           </a>
           <button
@@ -91,7 +89,7 @@ export function Nav() {
             ))}
           </ul>
           <div className="px-gutter pb-5">
-            <a href="#contact" onClick={closeMobile} className={`${ctaClass} flex w-full`}>
+            <a href="#contact" onClick={closeMobile} className={`${btnClass} flex w-full`}>
               Start a project
             </a>
           </div>
