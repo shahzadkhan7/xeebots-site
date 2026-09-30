@@ -18,6 +18,7 @@ import { serviceAnchor, services } from "./services/services-data";
 export const sections = [
   { id: "work", label: "Case Studies" },
   { id: "services", label: "Services" },
+  { id: "process", label: "Process" },
   { id: "pricing", label: "Pricing" },
   { id: "contact", label: "Contact" },
 ];
@@ -98,7 +99,7 @@ export const navMenus: NavMenu[] = [
         items: [
           { label: "About", description: "Who's behind Xeebots", href: "#", icon: UserRound, soon: true },
           { label: "Case Studies", description: "Real builds, in production", href: "#work", icon: Briefcase },
-          { label: "Process", description: "How an engagement runs", href: "#", icon: Route, soon: true },
+          { label: "Process", description: "How an engagement runs", href: "#process", icon: Route },
           { label: "Pricing", description: "Plans and custom scope", href: "#pricing", icon: Tag },
         ],
       },

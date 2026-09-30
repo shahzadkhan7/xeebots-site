@@ -3,12 +3,14 @@ import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/hero/Hero";
 import { Nav } from "@/components/Nav";
 import { sections } from "@/components/nav-links";
+import { Process } from "@/components/process/Process";
 import { Services } from "@/components/services/Services";
 import { CaseStudies } from "@/components/work/CaseStudies";
 
 const built: Record<string, ReactNode> = {
   work: <CaseStudies />,
   services: <Services />,
+  process: <Process />,
 };
 
 export default function Home() {
