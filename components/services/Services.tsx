@@ -1,25 +1,7 @@
+import { Reveal } from "../Reveal";
 import { SystemLog, type LogLine } from "../SystemLog";
 import { ServiceCard } from "./ServiceCard";
-
-const services = [
-  {
-    title: "AI Automation",
-    description: "Multi-tool pipelines that move work between the apps you already run, without a human in the middle.",
-  },
-  {
-    title: "AI Chatbots",
-    description: "Retrieval-grounded agents that actually know your business, on your site or inside your existing channels.",
-  },
-  {
-    title: "AI Agents",
-    description:
-      "Voice and text agents that qualify, book, and follow up — with a real handoff to your team when it matters.",
-  },
-  {
-    title: "Systems Integration",
-    description: "The unglamorous layer that makes the above reliable: data structure, sync, and monitoring.",
-  },
-];
+import { serviceAnchor, services } from "./services-data";
 
 const log: LogLine[] = [
   { time: "14:02:11", action: "trigger", event: "retell.call.completed", result: "agent qualified lead, score 0.91" },
@@ -49,17 +31,21 @@ export function Services() {
         <div className="mt-12 overflow-x-clip sm:mt-16">
           <ul className="-mx-2 grid gap-y-6 sm:grid-cols-2 lg:-mx-3 lg:grid-cols-4">
             {services.map((service, i) => (
-              <li key={service.title} className="flex flex-col">
-                <Rail />
-                <div className="flex-1 px-2 lg:px-3">
-                  <ServiceCard number={i + 1} {...service} />
-                </div>
+              <li key={service.slug} id={serviceAnchor(service)} className="flex flex-col">
+                <Reveal index={i} className="flex flex-1 flex-col">
+                  <Rail />
+                  <div className="flex-1 px-2 lg:px-3">
+                    <ServiceCard number={i + 1} title={service.title} description={service.description} />
+                  </div>
+                </Reveal>
               </li>
             ))}
           </ul>
         </div>
 
-        <SystemLog lines={log} className="mt-6 lg:mt-8" />
+        <Reveal className="mt-6 lg:mt-8">
+          <SystemLog lines={log} />
+        </Reveal>
       </div>
     </section>
   );

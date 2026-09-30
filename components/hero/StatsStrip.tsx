@@ -1,5 +1,5 @@
 const stats = [
-  { value: "89%", label: "Upwork job success score" },
+  { value: "90%", label: "Upwork job success score" },
   { value: "5.0", label: "Rating on completed projects" },
   { value: "4", label: "Systems in active production" },
   { value: "<48h", label: "Typical scope-to-build turnaround" },

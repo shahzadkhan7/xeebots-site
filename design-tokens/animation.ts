@@ -13,7 +13,14 @@ export const easing = {
 export const duration = {
   fast: "150ms",
   base: "250ms",
+  /** Scroll-triggered reveal (Reveal.tsx) — `duration-reveal` */
+  reveal: "350ms",
   slow: "500ms",
+};
+
+/** Reveal: distance travelled (16px, `translate-y-4`) and per-item stagger. */
+export const reveal = {
+  staggerMs: 60,
 };
 
 /** Dash length + gap for flowing lines. Use `stroke-dasharray="6 6"`. */

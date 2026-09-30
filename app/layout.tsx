@@ -29,6 +29,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className={`${fontClassNames} h-full antialiased`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        {/* Without JS the Reveal observer never runs — show everything at rest. */}
+        <noscript>
+          <style>{"[data-reveal]{opacity:1!important;transform:none!important}"}</style>
+        </noscript>
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
