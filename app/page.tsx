@@ -1,4 +1,5 @@
 import { Fragment, type ReactNode } from "react";
+import { FinalCta } from "@/components/contact/FinalCta";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/hero/Hero";
 import { Nav } from "@/components/Nav";
@@ -13,6 +14,7 @@ const built: Record<string, ReactNode> = {
   services: <Services />,
   process: <Process />,
   pricing: <Pricing />,
+  contact: <FinalCta />,
 };
 
 export default function Home() {
